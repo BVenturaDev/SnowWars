@@ -1,0 +1,212 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/rebindable_action.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/volume_slider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/options/options_menu.gd" type="Script" id=3]
+[ext_resource path="res://default_theme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/fonts/Alphakind.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[node name="options_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[node name="Panel" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.615686, 0.615686, 0.615686, 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.5
+margin_right = 48.5
+margin_bottom = 40.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "OPTIONS"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 40.0
+margin_top = 80.0
+
+[node name="HotkeysContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 748.0
+margin_bottom = 122.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 80
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HotkeysContainer"]
+margin_right = 295.0
+margin_bottom = 122.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UiUp" type="HBoxContainer" parent="MarginContainer/HotkeysContainer/GridContainer"]
+margin_right = 143.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/HotkeysContainer/GridContainer/UiUp"]
+margin_top = 2.0
+margin_right = 37.0
+margin_bottom = 32.0
+text = "Up:"
+
+[node name="RebindableAction" parent="MarginContainer/HotkeysContainer/GridContainer/UiUp" instance=ExtResource( 1 )]
+margin_left = 41.0
+margin_right = 74.0
+margin_bottom = 34.0
+keep_pressed_outside = true
+text = "Up"
+action = "ui_up"
+
+[node name="UiDown" type="HBoxContainer" parent="MarginContainer/HotkeysContainer/GridContainer"]
+margin_left = 153.0
+margin_right = 295.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/HotkeysContainer/GridContainer/UiDown"]
+margin_top = 2.0
+margin_right = 71.0
+margin_bottom = 32.0
+text = "Down:"
+
+[node name="RebindableAction" parent="MarginContainer/HotkeysContainer/GridContainer/UiDown" instance=ExtResource( 1 )]
+margin_left = 75.0
+margin_right = 142.0
+margin_bottom = 34.0
+text = "Down"
+action = "ui_down"
+
+[node name="UILeft" type="HBoxContainer" parent="MarginContainer/HotkeysContainer/GridContainer"]
+margin_top = 44.0
+margin_right = 143.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/HotkeysContainer/GridContainer/UILeft"]
+margin_top = 2.0
+margin_right = 51.0
+margin_bottom = 32.0
+text = "Left:"
+
+[node name="RebindableAction" parent="MarginContainer/HotkeysContainer/GridContainer/UILeft" instance=ExtResource( 1 )]
+margin_left = 55.0
+margin_right = 102.0
+margin_bottom = 34.0
+text = "Left"
+action = "ui_left"
+
+[node name="UIRight" type="HBoxContainer" parent="MarginContainer/HotkeysContainer/GridContainer"]
+margin_left = 153.0
+margin_top = 44.0
+margin_right = 295.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/HotkeysContainer/GridContainer/UIRight"]
+margin_top = 2.0
+margin_right = 64.0
+margin_bottom = 32.0
+text = "Right:"
+
+[node name="RebindableAction" parent="MarginContainer/HotkeysContainer/GridContainer/UIRight" instance=ExtResource( 1 )]
+margin_left = 68.0
+margin_right = 128.0
+margin_bottom = 34.0
+text = "Right"
+action = "ui_right"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HotkeysContainer/GridContainer"]
+margin_top = 88.0
+margin_right = 143.0
+margin_bottom = 122.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/HotkeysContainer/GridContainer/HBoxContainer"]
+margin_top = 2.0
+margin_right = 68.0
+margin_bottom = 32.0
+text = "Jump:"
+
+[node name="RebindableAction" parent="MarginContainer/HotkeysContainer/GridContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 72.0
+margin_right = 143.0
+margin_bottom = 34.0
+action = "ui_accept"
+
+[node name="VolumeContainer" type="VBoxContainer" parent="MarginContainer/HotkeysContainer"]
+margin_left = 375.0
+margin_right = 544.0
+margin_bottom = 122.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/HotkeysContainer/VolumeContainer"]
+margin_right = 169.0
+margin_bottom = 30.0
+text = "Master Volume"
+
+[node name="VolumeSlider" parent="MarginContainer/HotkeysContainer/VolumeContainer" instance=ExtResource( 2 )]
+margin_top = 34.0
+margin_right = 169.0
+margin_bottom = 50.0
+value = 1.0
+feedback_sound_path = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer/HotkeysContainer/VolumeContainer/VolumeSlider"]
+
+[node name="shadows_checkbox" type="CheckBox" parent="MarginContainer/HotkeysContainer"]
+margin_left = 624.0
+margin_right = 748.0
+margin_bottom = 122.0
+theme = ExtResource( 4 )
+pressed = true
+text = "Shadows"
+
+[node name="close" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+text = "X"
+
+[connection signal="toggled" from="MarginContainer/HotkeysContainer/shadows_checkbox" to="." method="_on_shadows_checkbox_toggled"]
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
+
+[editable path="MarginContainer/HotkeysContainer/GridContainer/HBoxContainer/RebindableAction"]

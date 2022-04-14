@@ -21,6 +21,7 @@ light_color = Color( 0.972549, 0.972549, 0.878431, 1 )
 shadow_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 4 )
 volume_db = -5.0
 autoplay = true

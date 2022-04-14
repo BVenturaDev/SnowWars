@@ -2,7 +2,8 @@ extends Control
 
 onready var lose_screen := $lose_screen
 onready var score_label := $score_label
-onready var lose_score_label = $lose_screen/lose_score_label
+onready var lose_score_label := $lose_screen/lose_score_label
+onready var pause_menu := $pause_menu
 
 func _process(_delta):
 	if lose_screen.visible:

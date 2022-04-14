@@ -13,6 +13,11 @@ var grids: Array = []
 var timer: float = 0
 var last_bomb
 
+func _input(event):
+	if event.is_action_pressed("ui_cancel") and Globals.gui:
+		get_tree().paused = true
+		Globals.gui.pause_menu.visible = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if OS.get_name() == "HTML5":

@@ -10,6 +10,7 @@ const MAX_DISTANCE: float = 100.0
 
 var character
 var gui
+var light
 
 var rng = RandomNumberGenerator.new()
 
@@ -29,6 +30,7 @@ func get_values():
 	total_score = 0
 	character = get_node("/root/main/player_character")
 	gui = get_node("/root/main/CanvasLayer/GUI")
+	light = get_node("/root/main/DirectionalLight")
 	rng.randomize()
 
 func _ready():

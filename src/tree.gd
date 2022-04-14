@@ -6,7 +6,11 @@ var branches: Array = []
 
 func _ready():
 	branches = branches_nodes.get_children()
-	var n_empty_branches = Globals.rng.randi_range(1, Globals.TRENCH_SIZE_X - 1)
+	var min_branches_left = 4.0 - Globals.score_multiplier
+	min_branches_left = clamp(min_branches_left, 1.0, 4.0)
+	var max_empty_branches = Globals.TRENCH_SIZE_X - 1 - Globals.score_multiplier
+	max_empty_branches = clamp(max_empty_branches, 5.0, 6.0)
+	var n_empty_branches = Globals.rng.randi_range(int(min_branches_left), int(max_empty_branches))
 	for _i in range(0, n_empty_branches):
 		var b_has_empty_branch: bool = false
 		while not b_has_empty_branch:
