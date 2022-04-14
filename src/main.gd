@@ -34,7 +34,7 @@ func add_grid(last_grid_pos):
 	var max_objects = 1.0 + Globals.score_multiplier
 	max_objects = clamp(max_objects, 1.0, 2.0)
 	var amount = Globals.rng.randi_range(0, float(max_objects))
-	for i in range(0, amount):
+	for _i in range(0, amount):
 		var tpos = new_grid.find_empty_pos('t')
 		if tpos:
 			var new_stump = stump.instance()
@@ -42,7 +42,7 @@ func add_grid(last_grid_pos):
 	
 	# Generate logs
 	amount = Globals.rng.randi_range(0, float(max_objects))
-	for i in range(0, int(amount)):
+	for _i in range(0, int(amount)):
 		var tree_pos = new_grid.find_empty_pos('t')
 		if tree_pos:
 			var new_tree = tree.instance()
@@ -54,7 +54,7 @@ func add_grid(last_grid_pos):
 	max_objects = 1.0 + Globals.score_multiplier
 	max_objects = clamp(max_objects, 1.0, 3.0)
 	amount = Globals.rng.randi_range(0, float(max_objects))
-	for i in range(0, amount):
+	for _i in range(0, amount):
 		var lpos = new_grid.find_empty_pos('b')
 		if lpos:
 			var snowman := snowman_shooter.instance()
@@ -62,7 +62,7 @@ func add_grid(last_grid_pos):
 			new_grid.left_bank_add_object(snowman, lpos[1], lpos[0])
 	
 	amount = Globals.rng.randi_range(0, float(max_objects))
-	for i in range(0, amount):	
+	for _i in range(0, amount):	
 		var rpos = new_grid.find_empty_pos('b')
 		if rpos:
 			var snowman := snowman_shooter.instance()
