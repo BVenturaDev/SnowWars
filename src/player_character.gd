@@ -79,6 +79,7 @@ func take_damage(damage):
 	b_shrink = true
 	if health <= 0:
 		Globals.gui.lose_screen.visible = true
+		Globals.gui.play_again_btn.grab_focus()
 		# handle game over
 		queue_free()
 

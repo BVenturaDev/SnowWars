@@ -1,6 +1,7 @@
 extends Control
 
 onready var lose_screen := $lose_screen
+onready var play_again_btn := $lose_screen/play_again
 onready var score_label := $score_label
 onready var lose_score_label := $lose_screen/lose_score_label
 onready var pause_menu := $pause_menu

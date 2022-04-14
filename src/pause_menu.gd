@@ -1,5 +1,6 @@
 extends Control
 
+onready var resume_btn := $VBoxContainer/resume_btn
 onready var quit_btn := $VBoxContainer/quit_btn
 
 func _ready():
@@ -12,6 +13,7 @@ func _on_resume_btn_pressed():
 
 func _on_options_btn_pressed():
 	get_parent().get_node("options_menu").visible = true
+	get_parent().get_node("options_menu").close_btn.grab_focus()
 
 func _on_quit_btn_pressed():
 	get_tree().quit()

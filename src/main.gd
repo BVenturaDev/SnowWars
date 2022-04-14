@@ -17,6 +17,7 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel") and Globals.gui:
 		get_tree().paused = true
 		Globals.gui.pause_menu.visible = true
+		Globals.gui.pause_menu.resume_btn.grab_focus()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
