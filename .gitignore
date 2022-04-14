@@ -1,5 +1,5 @@
 .godot/
-
+.ignore/
 builds/
 
 # Imported translations (automatically generated from CSV files)
