@@ -8,12 +8,17 @@ onready var scarf_mesh = $snowman/char_grp/rig/Skeleton/BoneAttachment2/scarf
 onready var loop_mesh = $snowman/char_grp/rig/Skeleton/BoneAttachment/loop
 onready var helmet_mesh = $snowman/char_grp/rig/Skeleton/BoneAttachment7/helmet
 onready var snowball_spawn = $snowball_spawn
-onready var timer: float = 0
+onready var timer = $Timer
 var b_red_team: bool
 var new_snowball := preload("res://scenes/snowball.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var min_wait = 3.0 - Globals.score_multiplier
+	min_wait = clamp(min_wait, 1.5, 3.0)
+	var max_wait = 5.0 - Globals.score_multiplier
+	max_wait = clamp(max_wait, 3.5, 5.0)
+	timer.wait_time = Globals.rng.randf_range(min_wait, max_wait)
 	if b_red_team:
 		var mat = scarf_mesh.mesh.surface_get_material(0).duplicate()
 		mat.set_texture(0, red_tex)

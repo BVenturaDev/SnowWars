@@ -17,10 +17,12 @@ var counter: int
 
 var coin_score: int = 0
 var total_score: int = 0
+var score_multiplier: float = 0
 
 func _process(_delta):
 	if is_instance_valid(character):
 		total_score = -int(character.translation.z / 10.0) + coin_score
+		score_multiplier = float(total_score) / 100.0
 
 func get_values():
 	coin_score = 0

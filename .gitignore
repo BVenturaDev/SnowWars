@@ -1,7 +1,3 @@
-# Godot-specific ignores
-.import/
-.import
-
 .godot/
 
 builds/

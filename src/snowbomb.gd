@@ -14,7 +14,7 @@ var stop_interp: bool
 var reset_timer: bool
 
 const follow_delay_secs: float = 0.3
-const damage: float = 50.0
+const damage: float = 100.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

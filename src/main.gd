@@ -30,31 +30,44 @@ func add_grid(last_grid_pos):
 	new_grid.translation = last_grid_pos
 	new_grid.translation.z -= float(Globals.BANK_SIZE_Y)
 	
-	# Generate obstacles in the trench
-	var tpos = new_grid.find_empty_pos('t')
-	if tpos:
-		var new_stump = stump.instance()
-		new_grid.trench_add_object(new_stump, tpos[1], tpos[0])
-		
-	var tree_pos = new_grid.find_empty_pos('t')
-	if tree_pos:
-		var new_tree = tree.instance()
-		new_grid.add_tree(new_tree, tree_pos[0])
+	# Generate stumps
+	var max_objects = 1.0 + Globals.score_multiplier
+	max_objects = clamp(max_objects, 1.0, 2.0)
+	var amount = Globals.rng.randi_range(0, float(max_objects))
+	for i in range(0, amount):
+		var tpos = new_grid.find_empty_pos('t')
+		if tpos:
+			var new_stump = stump.instance()
+			new_grid.trench_add_object(new_stump, tpos[1], tpos[0])
+	
+	# Generate logs
+	amount = Globals.rng.randi_range(0, float(max_objects))
+	for i in range(0, int(amount)):
+		var tree_pos = new_grid.find_empty_pos('t')
+		if tree_pos:
+			var new_tree = tree.instance()
+			new_grid.add_tree(new_tree, tree_pos[0])
 	
 	_generate_coins(new_grid)
 	
 	# Generate snowmen on right and left
-	var lpos = new_grid.find_empty_pos('b')
-	if lpos:
-		var snowman := snowman_shooter.instance()
-		snowman.b_red_team = true
-		new_grid.left_bank_add_object(snowman, lpos[1], lpos[0])
-		
-	var rpos = new_grid.find_empty_pos('b')
-	if rpos:
-		var snowman := snowman_shooter.instance()
-		snowman.b_red_team = false
-		new_grid.right_bank_add_object(snowman, rpos[1], rpos[0])
+	max_objects = 1.0 + Globals.score_multiplier
+	max_objects = clamp(max_objects, 1.0, 3.0)
+	amount = Globals.rng.randi_range(0, float(max_objects))
+	for i in range(0, amount):
+		var lpos = new_grid.find_empty_pos('b')
+		if lpos:
+			var snowman := snowman_shooter.instance()
+			snowman.b_red_team = true
+			new_grid.left_bank_add_object(snowman, lpos[1], lpos[0])
+	
+	amount = Globals.rng.randi_range(0, float(max_objects))
+	for i in range(0, amount):	
+		var rpos = new_grid.find_empty_pos('b')
+		if rpos:
+			var snowman := snowman_shooter.instance()
+			snowman.b_red_team = false
+			new_grid.right_bank_add_object(snowman, rpos[1], rpos[0])
 	return new_grid.translation
 			
 func _generate_grids():
@@ -65,7 +78,11 @@ func _generate_grids():
 		add_grid(grids[i - 1].translation)
 		
 func _generate_coins(map_grid):
-	var length = Globals.rng.randi_range(0, Globals.BANK_SIZE_Y - 1)
+	var min_length = 2.0 - Globals.score_multiplier
+	min_length = clamp(min_length, 0.0, 2.0)
+	var max_length = 9.0 - Globals.score_multiplier
+	max_length = clamp(max_length, 6.0, 9.0)
+	var length = int(Globals.rng.randf_range(min_length, max_length))
 	var x = Globals.rng.randi_range(0, Globals.TRENCH_SIZE_X - 1)
 	var positions = map_grid.find_line(x, length)
 	if not positions.size() == 0:
@@ -88,7 +105,7 @@ func _process(delta):
 	if is_instance_valid(Globals.character):
 		_check_grids()
 		timer += delta
-		if timer > Globals.SNOWBOMB_RATE - float(Globals.total_score) / 100 and not last_bomb:
+		if timer > Globals.SNOWBOMB_RATE - Globals.score_multiplier and not last_bomb:
 			var new_snowbomb = snowbomb.instance()
 			add_child(new_snowbomb)
 			last_bomb = new_snowbomb
