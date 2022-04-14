@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/snowball.gd" type="Script" id=1]
+[ext_resource path="res://scenes/models/model_snowball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/textures/T_magic_03.png" type="Texture" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.75, 1, 0.75 )
+
+[sub_resource type="QuadMesh" id=5]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.0110497, 0.149171, 0.458564, 0.883978, 1 )
+colors = PoolColorArray( 0.92549, 0.905882, 0.0509804, 0, 0.887736, 0.777422, 0.0936284, 1, 0.921875, 0.326572, 0.0936279, 1, 0.925781, 0.075943, 0.075943, 1, 0.945098, 0.160784, 0.0392157, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+light_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Snowball" type="KinematicBody"]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="snowball_collision" type="CollisionShape" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="model_snowball" parent="." instance=ExtResource( 2 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+
+[node name="fire_particle" type="CPUParticles" parent="."]
+visible = false
+amount = 16
+explosiveness = 0.17
+lifetime_randomness = 0.28
+local_coords = false
+mesh = SubResource( 5 )
+spread = 37.61
+initial_velocity = 250.0
+initial_velocity_random = 0.28
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+angle = 130.6
+angle_random = 1.0
+scale_amount = 0.75
+color_ramp = SubResource( 3 )
+
+[node name="light_particle" type="CPUParticles2D" parent="."]
+visible = false
+material = SubResource( 4 )
+amount = 10
+lifetime = 0.5
+texture = ExtResource( 4 )
+direction = Vector2( 1, 1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 30.0
+initial_velocity_random = 1.0
+angle = 90.0
+angle_random = 1.0
+color = Color( 0.811765, 0.933333, 0.639216, 1 )
+hue_variation = 0.21
+hue_variation_random = 1.0
+anim_speed = 100.0

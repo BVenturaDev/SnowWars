@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/GUI.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/Alphakind.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 34
+font_data = ExtResource( 3 )
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+
+[node name="score_label" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+theme = ExtResource( 1 )
+text = "Score: 0"
+
+[node name="lose_screen" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="lose_screen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="YouDied!" type="Label" parent="lose_screen"]
+anchor_left = 0.5
+anchor_top = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.25
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+text = "You Died!"
+align = 1
+valign = 1
+
+[node name="lose_score_label" type="Label" parent="lose_screen"]
+anchor_left = 0.5
+anchor_top = 0.35
+anchor_right = 0.5
+anchor_bottom = 0.35
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+text = "Score:"
+align = 1
+valign = 1
+
+[node name="play_again" type="Button" parent="lose_screen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource( 1 )
+text = "Play Again"
+
+[connection signal="pressed" from="lose_screen/play_again" to="." method="_on_play_again_pressed"]

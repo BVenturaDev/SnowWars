@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/tree.gd" type="Script" id=1]
+[ext_resource path="res://scenes/models/model_tree.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/models/model_branch.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CylinderShape" id=2]
+radius = 0.5
+height = 6.0
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.5, 0.5, 0.5 )
+
+[node name="tree" type="StaticBody" groups=["trees"]]
+collision_layer = 8
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.5, 0.5, 0 )
+shape = SubResource( 2 )
+
+[node name="Branches" type="Spatial" parent="."]
+
+[node name="Branch1" type="StaticBody" parent="Branches"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+collision_layer = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="Branches/Branch1"]
+shape = SubResource( 4 )
+
+[node name="model_branch" parent="Branches/Branch1" instance=ExtResource( 3 )]
+
+[node name="Branch2" type="StaticBody" parent="Branches"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, 0 )
+collision_layer = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="Branches/Branch2"]
+shape = SubResource( 4 )
+
+[node name="model_branch" parent="Branches/Branch2" instance=ExtResource( 3 )]
+
+[node name="Branch3" type="StaticBody" parent="Branches"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, 0 )
+collision_layer = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="Branches/Branch3"]
+shape = SubResource( 4 )
+
+[node name="model_branch" parent="Branches/Branch3" instance=ExtResource( 3 )]
+
+[node name="Branch4" type="StaticBody" parent="Branches"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, 0 )
+collision_layer = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="Branches/Branch4"]
+shape = SubResource( 4 )
+
+[node name="model_branch" parent="Branches/Branch4" instance=ExtResource( 3 )]
+
+[node name="Branch5" type="StaticBody" parent="Branches"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, 0 )
+collision_layer = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="Branches/Branch5"]
+shape = SubResource( 4 )
+
+[node name="model_branch" parent="Branches/Branch5" instance=ExtResource( 3 )]
+
+[node name="Branch6" type="StaticBody" parent="Branches"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0 )
+collision_layer = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="Branches/Branch6"]
+shape = SubResource( 4 )
+
+[node name="model_branch" parent="Branches/Branch6" instance=ExtResource( 3 )]
+
+[node name="model_tree" parent="." instance=ExtResource( 2 )]

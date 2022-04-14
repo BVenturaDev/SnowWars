@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/models/model_stump.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CylinderShape" id=2]
+radius = 0.5
+height = 0.95
+
+[node name="stump" type="StaticBody"]
+collision_layer = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+shape = SubResource( 2 )
+
+[node name="stump" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 0, 0, 0 )
