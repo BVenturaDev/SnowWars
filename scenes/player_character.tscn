@@ -1,11 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/player_character.gd" type="Script" id=1]
 [ext_resource path="res://scenes/models/model_snowman.tscn" type="PackedScene" id=2]
+[ext_resource path="res://materials/M_snowball.tres" type="Material" id=3]
+[ext_resource path="res://assets/sfx/coin.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/jump.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sfx/hit.wav" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.5
 height = 0.435293
+
+[sub_resource type="SphereMesh" id=3]
+material = ExtResource( 3 )
+radius = 0.05
+height = 0.1
+radial_segments = 12
+rings = 12
 
 [node name="player_character" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -24,3 +35,35 @@ fov = 35.0
 
 [node name="snowman" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0 )
+
+[node name="hit_particles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.560408, 0 )
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource( 3 )
+emission_shape = 1
+emission_sphere_radius = 0.5
+direction = Vector3( 1, 1, 1 )
+spread = 180.0
+flatness = 1.0
+initial_velocity = 2.0
+initial_velocity_random = 1.0
+
+[node name="melt_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="hit_sfx" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 6 )
+unit_db = 20.0
+
+[node name="coin_sfx" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_db = 5.0
+
+[node name="jump_sfx" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 5 )
+unit_db = 5.0
+
+[connection signal="timeout" from="melt_timer" to="." method="_on_melt_timer_timeout"]

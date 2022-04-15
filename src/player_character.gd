@@ -2,6 +2,10 @@ extends KinematicBody
 
 onready var anim := $snowman/AnimationPlayer
 onready var gun := $snowman/char_grp/rig/Skeleton/BoneAttachment10/gun
+onready var hit_particles = $hit_particles
+onready var hit_sfx = $hit_sfx
+onready var coin_sfx = $coin_sfx
+onready var jump_sfx = $jump_sfx
 
 const SPEED = 10.0
 const JUMP_VELOCITY = 7.0
@@ -12,7 +16,6 @@ var b_shrink: bool
 var scalar: float
 var lerp_alpha: float = 0
 var current_size: Vector3
-var b_is_melting
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var velocity = Vector3()
@@ -22,8 +25,6 @@ func _ready():
 	gun.visible = false
 
 func _process(_delta):
-	if b_is_melting:
-		take_damage(1)
 	if b_shrink:
 		_lerp_scale(current_size, Vector3(scalar, scalar, scalar))
 
@@ -32,6 +33,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
 		if velocity.y > 0.0 and not anim.current_animation == "Jump":
+			jump_sfx.play()
 			anim.play("Jump")
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -67,9 +69,13 @@ func _physics_process(delta):
 		else:
 			if not anim.current_animation == "Idle":
 				anim.play("Idle")
-		
-		
+
 func take_damage(damage):
+	if damage > 0:
+		hit_sfx.play()
+		hit_particles.restart()
+	else:
+		coin_sfx.play()
 	health -= damage
 	health = clamp(health - damage, 0, 100)
 	#print(health)
@@ -89,3 +95,8 @@ func _lerp_scale(old_size, new_size):
 	if lerp_alpha == 1:
 		lerp_alpha = 0
 		b_shrink = false
+
+
+func _on_melt_timer_timeout():
+	take_damage(1)
+
