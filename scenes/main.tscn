@@ -3,7 +3,7 @@
 [ext_resource path="res://src/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player_character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://default_env.tres" type="Environment" id=3]
-[ext_resource path="res://assets/music/SnowWars2.wav" type="AudioStream" id=4]
+[ext_resource path="res://scenes/music_looper.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=5]
 
 [node name="main" type="Spatial"]
@@ -20,12 +20,8 @@ transform = Transform( 0.538153, -0.512019, 0.669499, 0, 0.79433, 0.607487, -0.8
 light_color = Color( 0.972549, 0.972549, 0.878431, 1 )
 shadow_enabled = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
-stream = ExtResource( 4 )
-volume_db = -5.0
-autoplay = true
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 5 )]
+
+[node name="music_looper" parent="." instance=ExtResource( 4 )]
