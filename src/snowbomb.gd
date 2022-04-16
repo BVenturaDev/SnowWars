@@ -38,11 +38,8 @@ func _process(delta):
 			if timer_follow > follow_delay_secs:
 				translation = translation.linear_interpolate(character_loc, interp_alpha)
 				interp_alpha = clamp(interp_alpha + (delta / follow_delay_secs), 0, 1)
-			var randx = rand_range(-2.0, 2.0)
-			var randz = rand_range(-10.0, 0)
-			fall_loc = Vector3(character_loc.x + randx, 0.4, character_loc.z + randz)
-		elif timer_move <= 5.0:
-			translation = translation.linear_interpolate(fall_loc, interp_alpha / 2.0)
+		elif timer_move <= 6:
+			translation = translation.linear_interpolate(character_loc, interp_alpha / 2.0)
 			interp_alpha = clamp(interp_alpha + delta / follow_delay_secs, 0, 1)
 		elif mesh.translation != Vector3(0, 0, 0):
 			if mesh.translation.x < 0.1:
@@ -51,6 +48,8 @@ func _process(delta):
 				mesh.translation.y = 0
 			if mesh.translation.z < 0.1:
 				mesh.translation.z = 0
+			# this is running for another 20-30 frames even when mesh.translation == Vector3(0, 0, 0)
+			#print(mesh.translation)
 			mesh.translation = mesh.translation.linear_interpolate(Vector3(0, 0, 0), interp_alpha)
 			interp_alpha = clamp(interp_alpha + delta, 0, 1)
 		elif !collision_on:

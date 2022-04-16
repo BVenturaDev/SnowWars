@@ -33,6 +33,6 @@ jobs:
        env:
            BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
            CHANNEL: web
-           ITCH_GAME: snow-wars
+           ITCH_GAME: snowhere-to-run
            ITCH_USER: Oeslian
            PACKAGE: build/web

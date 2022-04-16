@@ -1,23 +1,27 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/snowball.gd" type="Script" id=1]
 [ext_resource path="res://scenes/models/model_snowball.tscn" type="PackedScene" id=2]
 [ext_resource path="res://materials/M_fire_particle.material" type="Material" id=3]
 
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.75, 1, 0.75 )
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="QuadMesh" id=2]
 material = ExtResource( 3 )
 size = Vector2( 0.5, 0.5 )
 
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.75, 1, 0.75 )
+
 [node name="Snowball" type="KinematicBody"]
-collision_layer = 2
+collision_layer = 16
+collision_mask = 16
 script = ExtResource( 1 )
 
 [node name="snowball_collision" type="CollisionShape" parent="."]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="model_snowball" parent="." instance=ExtResource( 2 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
@@ -45,3 +49,11 @@ tangential_accel_random = 1.0
 angle = 0.3
 angle_random = 1.0
 scale_amount_random = 1.0
+
+[node name="Area" type="Area" parent="."]
+
+[node name="snowball_collision" type="CollisionShape" parent="Area"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
