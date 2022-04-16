@@ -6,6 +6,10 @@ const stump := preload("res://scenes/stump.tscn")
 const tree := preload("res://scenes/tree.tscn")
 const coin := preload("res://scenes/coin.tscn")
 const snowbomb := preload("res://scenes/snowbomb.tscn")
+# power up
+const PU_gunfire := preload("res://scenes/PU_gunfire.tscn")
+const PU_superjump := preload("res://scenes/PU_superjump.tscn")
+const PU_invulnerability := preload("res://scenes/PU_invulnerability.tscn")
 
 onready var light := $DirectionalLight
 
