@@ -18,3 +18,7 @@ func _on_options_btn_pressed():
 func _on_quit_btn_pressed():
 	get_tree().quit()
 
+func _on_credits_pressed():
+	visible = false
+	get_parent().credits_screen.visible = true
+	get_parent().credits_close.grab_focus()

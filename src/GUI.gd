@@ -5,6 +5,8 @@ onready var play_again_btn := $lose_screen/play_again
 onready var score_label := $score_label
 onready var lose_score_label := $lose_screen/lose_score_label
 onready var pause_menu := $pause_menu
+onready var credits_screen := $credits_screen
+onready var credits_close := $credits_screen/close
 
 onready var score1 := $lose_screen/VBoxContainer/high_score1
 onready var score2 := $lose_screen/VBoxContainer/high_score2
@@ -29,3 +31,8 @@ func _process(_delta):
 
 func _on_play_again_pressed():
 	var _a = get_tree().reload_current_scene()
+
+func _on_close_pressed():
+	credits_screen.visible = false
+	pause_menu.visible = true
+	pause_menu.resume_btn.grab_focus()
