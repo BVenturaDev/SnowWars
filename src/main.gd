@@ -7,9 +7,8 @@ const tree := preload("res://scenes/tree.tscn")
 const coin := preload("res://scenes/coin.tscn")
 const snowbomb := preload("res://scenes/snowbomb.tscn")
 # power up
-const PU_gunfire := preload("res://scenes/PU_gunfire.tscn")
 const PU_superjump := preload("res://scenes/PU_superjump.tscn")
-const PU_invulnerability := preload("res://scenes/PU_invulnerability.tscn")
+
 
 onready var light := $DirectionalLight
 
@@ -60,6 +59,15 @@ func add_grid(last_grid_pos):
 			new_grid.add_tree(new_tree, tree_pos[0])
 	
 	_generate_coins(new_grid)
+	
+	# Generate super jumps
+	var max_chance = 10.0 + (Globals.score_multiplier * 2.0)
+	var choice = Globals.rng.randi_range(0, int(max_chance))
+	if choice == int(max_chance):
+		var PU_pos = new_grid.find_empty_pos('p')
+		if PU_pos:
+			var PU = PU_superjump.instance()
+			new_grid.trench_add_object(PU, PU_pos[1], PU_pos[0])
 	
 	# Generate snowmen on right and left
 	max_objects = 1.0 + Globals.score_multiplier

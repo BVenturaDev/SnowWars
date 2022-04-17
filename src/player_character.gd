@@ -22,9 +22,13 @@ var scalar: float
 var lerp_alpha: float = 0
 var current_size: Vector3
 
+var super_jump: bool = false
+
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var velocity = Vector3()
 
+
+var cur_anim
 
 func _ready():
 	gun.visible = false
@@ -37,10 +41,12 @@ func _process(_delta):
 		# add visual effects
 
 func _physics_process(delta):
+	if anim.is_playing():
+		cur_anim = anim.current_animation
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
-		if velocity.y > 0.0 and not anim.current_animation == "Jump":
+		if velocity.y > 0.0 and not cur_anim == "Jump":
 			jump_sfx.play()
 			anim.play("Jump")
 	
@@ -55,8 +61,12 @@ func _physics_process(delta):
 	
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		if super_jump:
+			velocity.x = direction.x * SPEED * 2.0
+			velocity.z = direction.z * SPEED * 2.0
+		else:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -95,6 +105,7 @@ func _physics_process(delta):
 		global_transform.origin.z = -1.1
 	
 	if is_on_floor():
+		super_jump = false
 		# Handle Jump.
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = JUMP_VELOCITY
