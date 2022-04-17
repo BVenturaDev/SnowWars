@@ -41,7 +41,7 @@ shape = SubResource( 5 )
 disabled = true
 
 [node name="model_snowball" type="Spatial" parent="."]
-transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 10, 0 )
+transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 20, 0 )
 
 [node name="snowball" type="MeshInstance" parent="model_snowball"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.282592, -0.890988, -0.636826 )

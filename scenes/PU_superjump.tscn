@@ -1,11 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/PU_superjump.gd" type="Script" id=1]
+[ext_resource path="res://assets/sfx/super_jump.wav" type="AudioStream" id=2]
 
 [sub_resource type="CylinderMesh" id=2]
+top_radius = 0.8
+bottom_radius = 0.8
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.133333, 0.87451, 0.0627451, 1 )
+albedo_color = Color( 0.772549, 0.654902, 0.184314, 1 )
+roughness = 0.21
+
+[sub_resource type="CylinderMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0, 0, 0, 1 )
+roughness = 0.21
 
 [sub_resource type="BoxShape" id=1]
 
@@ -20,8 +30,19 @@ mesh = SubResource( 2 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 3 )
 
+[node name="mesh2" type="MeshInstance" parent="Area"]
+transform = Transform( 0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.5, 0, 0.00977311, 0 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 5 )
+
 [node name="collision" type="CollisionShape" parent="Area"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0 )
+visible = false
 shape = SubResource( 1 )
+
+[node name="jump_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -15.0
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

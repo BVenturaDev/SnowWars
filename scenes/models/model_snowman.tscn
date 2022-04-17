@@ -3925,7 +3925,7 @@ bones/42/name = "c_spine_01.x"
 bones/42/parent = 2
 bones/42/rest = Transform( 0.999978, 4.09568e-10, -0.00658596, -4.09559e-10, 1, 2.7042e-12, 0.00658596, -6.79947e-15, 0.999978, -7.66876e-13, 0.359431, 1.16392e-10 )
 bones/42/enabled = true
-bones/42/bound_children = [ NodePath("BoneAttachment4") ]
+bones/42/bound_children = [  ]
 bones/43/name = "spine_01.x"
 bones/43/parent = 42
 bones/43/rest = Transform( 1, -1.33237e-15, 4.65661e-10, 1.33237e-15, 1, -4.70969e-18, -4.65661e-10, 4.70969e-18, 1, 2.04003e-13, -7.45058e-09, 1.08442e-10 )
@@ -3940,7 +3940,7 @@ bones/45/name = "c_spine_02.x"
 bones/45/parent = 42
 bones/45/rest = Transform( 0.983531, -0.0012185, 0.180734, -1.33878e-09, 0.999977, 0.00674181, -0.180738, -0.00663078, 0.983509, 2.03781e-13, 0.333885, -7.97315e-12 )
 bones/45/enabled = true
-bones/45/bound_children = [ NodePath("BoneAttachment3") ]
+bones/45/bound_children = [  ]
 bones/46/name = "spine_02.x"
 bones/46/parent = 45
 bones/46/rest = Transform( 1, -1.12746e-10, 8.18068e-09, 1.12746e-10, 1, -4.65661e-10, -8.18068e-09, 4.65661e-10, 1, 4.33668e-11, -1.49862e-08, -4.6566e-10 )
@@ -3950,7 +3950,7 @@ bones/47/name = "c_neck.x"
 bones/47/parent = 45
 bones/47/rest = Transform( 0.999909, -4.3863e-06, 0.0134588, 0.00255873, 0.981824, -0.189778, -0.0132134, 0.189795, 0.981735, -5.82285e-10, 0.359002, 1.15532e-08 )
 bones/47/enabled = true
-bones/47/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
+bones/47/bound_children = [  ]
 bones/48/name = "c_p_neck.x"
 bones/48/parent = 47
 bones/48/rest = Transform( 1, 1.46952e-09, 9.28412e-09, -1.46952e-09, 1, -5.2155e-08, -9.28412e-09, 5.2155e-08, 1, -6.88843e-10, 0.0553652, 5.2274e-09 )
@@ -4215,7 +4215,7 @@ bones/100/name = "c_head.x"
 bones/100/parent = 99
 bones/100/rest = Transform( 0.934404, 1.0413e-08, -0.356216, 1.0183e-08, 1, 5.59436e-08, 0.356216, -5.59013e-08, 0.934404, 2.6192e-10, 7.40519e-14, 2.23461e-11 )
 bones/100/enabled = true
-bones/100/bound_children = [ NodePath("BoneAttachment5"), NodePath("BoneAttachment6"), NodePath("BoneAttachment7"), NodePath("BoneAttachment8"), NodePath("BoneAttachment9") ]
+bones/100/bound_children = [  ]
 bones/101/name = "head.x"
 bones/101/parent = 100
 bones/101/rest = Transform( 1, -8.14555e-19, 1.07909e-15, 8.14555e-19, 1, -2.55351e-15, -1.07909e-15, 2.55351e-15, 1, -4.65619e-10, -5.96046e-08, 1.88503e-09 )
@@ -4490,7 +4490,7 @@ bones/155/name = "hand.r"
 bones/155/parent = 154
 bones/155/rest = Transform( 0.349755, -0.109169, 0.930459, 0.390709, 0.919689, -0.0389608, -0.85148, 0.377165, 0.364319, 5.75137e-08, 0.211813, 2.32138e-09 )
 bones/155/enabled = true
-bones/155/bound_children = [ NodePath("BoneAttachment10") ]
+bones/155/bound_children = [  ]
 bones/156/name = "c_pinky1_base.r"
 bones/156/parent = 155
 bones/156/rest = Transform( 0.908549, 0.401466, -0.1156, -0.416128, 0.894197, -0.165075, 0.037097, 0.198083, 0.979483, 0.0136081, 0.0429669, -0.000776026 )
@@ -5038,7 +5038,7 @@ bones/264/enabled = true
 bones/264/bound_children = [  ]
 
 [node name="BoneAttachment" type="BoneAttachment" parent="char_grp/rig/Skeleton"]
-transform = Transform( 0.982308, 0.0319115, 0.18453, 0.00246958, 0.983081, -0.183155, -0.187252, 0.18037, 0.96561, -0.00042171, 0.817213, -0.00125383 )
+transform = Transform( 0.926693, -0.0851558, -0.366041, -0.0443228, 0.942428, -0.331458, 0.373193, 0.323384, 0.869569, -0.00902837, 0.808632, 0.109491 )
 bone_name = "c_neck.x"
 
 [node name="loop" type="MeshInstance" parent="char_grp/rig/Skeleton/BoneAttachment"]
@@ -5047,7 +5047,7 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="BoneAttachment2" type="BoneAttachment" parent="char_grp/rig/Skeleton"]
-transform = Transform( 0.982308, 0.0319115, 0.18453, 0.00246958, 0.983081, -0.183155, -0.187252, 0.18037, 0.96561, -0.00042171, 0.817213, -0.00125383 )
+transform = Transform( 0.926693, -0.0851558, -0.366041, -0.0443228, 0.942428, -0.331458, 0.373193, 0.323384, 0.869569, -0.00902837, 0.808632, 0.109491 )
 bone_name = "c_neck.x"
 
 [node name="scarf" type="MeshInstance" parent="char_grp/rig/Skeleton/BoneAttachment2"]
@@ -5056,7 +5056,7 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="BoneAttachment3" type="BoneAttachment" parent="char_grp/rig/Skeleton"]
-transform = Transform( 0.984703, -0.00117469, 0.174236, -7.01347e-09, 0.999977, 0.00674181, -0.17424, -0.00663868, 0.984681, 3.84776e-09, 0.458219, 0.00112946 )
+transform = Transform( 0.921684, -0.0117705, -0.387762, -0.048784, 0.988088, -0.14595, 0.384861, 0.153436, 0.910131, -0.00480274, 0.453906, 0.054407 )
 bone_name = "c_spine_02.x"
 
 [node name="body_top" type="MeshInstance" parent="char_grp/rig/Skeleton/BoneAttachment3"]
@@ -5065,7 +5065,7 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment4" type="BoneAttachment" parent="char_grp/rig/Skeleton"]
-transform = Transform( 0.999978, 5.76286e-09, -0.00660256, -5.76273e-09, 1, 3.79608e-11, 0.00660256, -2.07523e-18, 0.999978, 1.92337e-09, 0.124334, 0.00112946 )
+transform = Transform( 0.995354, -0.0143844, -0.0951959, -0.00105784, 0.987082, -0.160212, 0.0962707, 0.159568, 0.982481, 1.92337e-09, 0.124334, 0.00112946 )
 bone_name = "c_spine_01.x"
 
 [node name="body_base" type="MeshInstance" parent="char_grp/rig/Skeleton/BoneAttachment4"]
@@ -5074,7 +5074,7 @@ mesh = SubResource( 4 )
 material/0 = ExtResource( 1 )
 
 [node name="BoneAttachment5" type="BoneAttachment" parent="char_grp/rig/Skeleton"]
-transform = Transform( 0.982165, -1.33593e-07, -0.188023, 1.06956e-07, 1, -1.08526e-07, 0.188023, -5.68605e-08, 0.982165, 0.00311187, 0.92607, 0.0187186 )
+transform = Transform( 0.996894, -0.0143846, -0.0774288, 0.00179989, 0.987082, -0.160205, 0.078733, 0.159568, 0.984043, -0.0184578, 0.912987, 0.145299 )
 bone_name = "c_head.x"
 
 [node name="eyes" type="MeshInstance" parent="char_grp/rig/Skeleton/BoneAttachment5"]
@@ -5083,7 +5083,7 @@ mesh = SubResource( 5 )
 material/0 = ExtResource( 1 )
 
 [node name="BoneAttachment6" type="BoneAttachment" parent="char_grp/rig/Skeleton"]
-transform = Transform( 0.982165, -1.33593e-07, -0.188023, 1.06956e-07, 1, -1.08526e-07, 0.188023, -5.68605e-08, 0.982165, 0.00311187, 0.92607, 0.0187186 )
+transform = Transform( 0.996894, -0.0143846, -0.0774288, 0.00179989, 0.987082, -0.160205, 0.078733, 0.159568, 0.984043, -0.0184578, 0.912987, 0.145299 )
 bone_name = "c_head.x"
 
 [node name="head" type="MeshInstance" parent="char_grp/rig/Skeleton/BoneAttachment6"]
@@ -5092,7 +5092,7 @@ mesh = SubResource( 6 )
 material/0 = null
 
 [node name="BoneAttachment7" type="BoneAttachment" parent="char_grp/rig/Skeleton"]
-transform = Transform( 0.982165, -1.33593e-07, -0.188023, 1.06956e-07, 1, -1.08526e-07, 0.188023, -5.68605e-08, 0.982165, 0.00311187, 0.92607, 0.0187186 )
+transform = Transform( 0.996894, -0.0143846, -0.0774288, 0.00179989, 0.987082, -0.160205, 0.078733, 0.159568, 0.984043, -0.0184578, 0.912987, 0.145299 )
 bone_name = "c_head.x"
 
 [node name="helmet" type="MeshInstance" parent="char_grp/rig/Skeleton/BoneAttachment7"]
@@ -5101,7 +5101,7 @@ mesh = SubResource( 7 )
 material/0 = null
 
 [node name="BoneAttachment8" type="BoneAttachment" parent="char_grp/rig/Skeleton"]
-transform = Transform( 0.982165, -1.33593e-07, -0.188023, 1.06956e-07, 1, -1.08526e-07, 0.188023, -5.68605e-08, 0.982165, 0.00311187, 0.92607, 0.0187186 )
+transform = Transform( 0.996894, -0.0143846, -0.0774288, 0.00179989, 0.987082, -0.160205, 0.078733, 0.159568, 0.984043, -0.0184578, 0.912987, 0.145299 )
 bone_name = "c_head.x"
 
 [node name="helmet_loop" type="MeshInstance" parent="char_grp/rig/Skeleton/BoneAttachment8"]
@@ -5110,7 +5110,7 @@ mesh = SubResource( 8 )
 material/0 = null
 
 [node name="BoneAttachment9" type="BoneAttachment" parent="char_grp/rig/Skeleton"]
-transform = Transform( 0.982165, -1.33593e-07, -0.188023, 1.06956e-07, 1, -1.08526e-07, 0.188023, -5.68605e-08, 0.982165, 0.00311187, 0.92607, 0.0187186 )
+transform = Transform( 0.996894, -0.0143846, -0.0774288, 0.00179989, 0.987082, -0.160205, 0.078733, 0.159568, 0.984043, -0.0184578, 0.912987, 0.145299 )
 bone_name = "c_head.x"
 
 [node name="nose" type="MeshInstance" parent="char_grp/rig/Skeleton/BoneAttachment9"]
@@ -5124,7 +5124,7 @@ skin = SubResource( 11 )
 material/0 = null
 
 [node name="BoneAttachment10" type="BoneAttachment" parent="char_grp/rig/Skeleton"]
-transform = Transform( 0.0440647, 0.150092, -0.98769, -0.995412, -0.0774471, -0.0561782, -0.0849261, 0.985634, 0.14599, -0.31606, 0.522216, 0.401562 )
+transform = Transform( 0.069058, -0.00122312, -0.997612, -0.904439, -0.422059, -0.0620901, -0.420976, 0.906567, -0.0302529, -0.459431, 0.47278, -0.0765483 )
 bone_name = "hand.r"
 
 [node name="gun" parent="char_grp/rig/Skeleton/BoneAttachment10" instance=ExtResource( 3 )]
