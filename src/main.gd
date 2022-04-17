@@ -121,10 +121,4 @@ func _process(delta):
 			add_child(new_snowbomb)
 			last_bomb = new_snowbomb
 			timer = 0
-		
-		if timer > 10.0 and !PU_added:
-			var PU = PU_invulnerability.instance()
-			add_child(PU)
-			var new_trans = Globals.character.translation
-			PU.translation = Vector3(new_trans.x , 0.4, new_trans.z + 2.0)
-			PU_added = true
+	
