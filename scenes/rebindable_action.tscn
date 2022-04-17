@@ -8,9 +8,6 @@ margin_bottom = 20.0
 toggle_mode = true
 text = "Space"
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 action = "ui_select"
 
 [connection signal="toggled" from="." to="." method="_on_Button_toggled"]

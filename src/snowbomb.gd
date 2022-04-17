@@ -30,15 +30,15 @@ func _process(delta):
 	if is_instance_valid(Globals.character) and Globals.character:
 		timer_move += delta
 		character_loc = Vector3(Globals.character.translation.x, 0.4, Globals.character.translation.z)
-		if timer_move <= 2:
+		if timer_move <= 1:
 			translation = translation.linear_interpolate(character_loc, interp_alpha)
 			interp_alpha = clamp(interp_alpha + delta / interp_rate_secs, 0, 1)
-		elif timer_move <= 4:
+		elif timer_move <= 2:
 			timer_follow += delta
 			if timer_follow > follow_delay_secs:
 				translation = translation.linear_interpolate(character_loc, interp_alpha)
 				interp_alpha = clamp(interp_alpha + (delta / follow_delay_secs), 0, 1)
-		elif timer_move <= 6:
+		elif timer_move <= 4:
 			translation = translation.linear_interpolate(character_loc, interp_alpha / 2.0)
 			interp_alpha = clamp(interp_alpha + delta / follow_delay_secs, 0, 1)
 		elif mesh.translation != Vector3(0, 0, 0):
@@ -50,7 +50,7 @@ func _process(delta):
 				mesh.translation.z = 0
 			# this is running for another 20-30 frames even when mesh.translation == Vector3(0, 0, 0)
 			#print(mesh.translation)
-			mesh.translation = mesh.translation.linear_interpolate(Vector3(0, 0, 0), interp_alpha)
+			mesh.translation = mesh.translation.linear_interpolate(Vector3(0, 0, 0), interp_alpha / 1.5)
 			interp_alpha = clamp(interp_alpha + delta, 0, 1)
 		elif !collision_on:
 			$snowbomb_col.disabled = false

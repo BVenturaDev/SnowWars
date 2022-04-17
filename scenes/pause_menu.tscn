@@ -18,7 +18,7 @@ anchor_bottom = 0.5
 margin_left = -100.0
 margin_top = -150.0
 margin_right = 100.0
-margin_bottom = 100.0
+margin_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -46,33 +46,44 @@ size_flags_vertical = 0
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 1.0
-margin_right = 168.0
-margin_bottom = 84.0
+margin_left = 6.0
+margin_right = 154.0
+margin_bottom = 126.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Snow Wars
-"
+text = "Snowhere
+to
+Run"
 align = 1
 
 [node name="resume_btn" type="Button" parent="VBoxContainer"]
-margin_top = 88.0
-margin_right = 168.0
-margin_bottom = 122.0
+margin_top = 130.0
+margin_right = 160.0
+margin_bottom = 164.0
 text = "Resume"
 
 [node name="options_btn" type="Button" parent="VBoxContainer"]
-margin_top = 126.0
-margin_right = 168.0
-margin_bottom = 160.0
+margin_top = 168.0
+margin_right = 160.0
+margin_bottom = 202.0
 text = "Options"
 
+[node name="credits" type="Button" parent="VBoxContainer"]
+margin_top = 206.0
+margin_right = 160.0
+margin_bottom = 240.0
+text = "Credits"
+
 [node name="quit_btn" type="Button" parent="VBoxContainer"]
-margin_top = 164.0
-margin_right = 168.0
-margin_bottom = 198.0
+margin_top = 244.0
+margin_right = 160.0
+margin_bottom = 278.0
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/resume_btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/options_btn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]

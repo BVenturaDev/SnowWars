@@ -33,7 +33,7 @@ jobs:
         env:
             BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
             CHANNEL: windows
-            ITCH_GAME: snow-wars
+            ITCH_GAME: snowhere-to-run
             ITCH_USER: Oeslian
             PACKAGE: build/windows
 
@@ -62,7 +62,7 @@ jobs:
         env:
             BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
             CHANNEL: linux
-            ITCH_GAME: snow-wars
+            ITCH_GAME: snowhere-to-run
             ITCH_USER: Oeslian
             PACKAGE: build/linux
 
@@ -128,6 +128,6 @@ jobs:
         env:
             BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
             CHANNEL: mac
-            ITCH_GAME: snow-wars
+            ITCH_GAME: snowhere-to-run
             ITCH_USER: Oeslian
             PACKAGE: build/mac
